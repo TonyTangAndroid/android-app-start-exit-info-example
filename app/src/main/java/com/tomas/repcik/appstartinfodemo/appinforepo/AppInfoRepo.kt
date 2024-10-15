@@ -49,13 +49,15 @@ class AppInfoRepo(context: Context) {
         val launchMode = LaunchMode.fromValue(startInfo.launchMode)
         val startTimestamp = StartupTimestamps.fromMap(startInfo.startupTimestamps)
         val wasForceStopped = startInfo.wasForceStopped()
+        val startIntent = startInfo.intent
         return AppStartInfo(
             startType,
             startUpState,
             startReason,
             launchMode,
             startTimestamp,
-            wasForceStopped
+            wasForceStopped,
+            startIntent
         )
     }
 
