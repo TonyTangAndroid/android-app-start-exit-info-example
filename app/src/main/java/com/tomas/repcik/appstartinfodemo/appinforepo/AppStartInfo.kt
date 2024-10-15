@@ -9,6 +9,6 @@ data class AppStartInfo(
     val startReason: StartReason, // why the app was started
     val launchMode: LaunchMode, // e.g. SINGLE_TASK, SINGLE_TOP
     val timestamps: StartupTimestamps, // timestamps of the events
-    val wasForceStopped: Boolean, // if the app was forced to quit during startup
+    val wasForceStopped: Boolean, // if the app was forced previously
     val startIntent: Intent?
 )
