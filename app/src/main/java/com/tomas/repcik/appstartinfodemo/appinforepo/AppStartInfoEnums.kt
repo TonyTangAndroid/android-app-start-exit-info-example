@@ -1,7 +1,6 @@
 package com.tomas.repcik.appstartinfodemo.appinforepo
 
 import android.app.ApplicationStartInfo
-import android.content.pm.ActivityInfo
 
 enum class LaunchMode {
     LAUNCH_MODE_SINGLE_INSTANCE,
@@ -12,11 +11,11 @@ enum class LaunchMode {
 
     companion object {
         fun fromValue(value: Int): LaunchMode = when (value) {
-            ActivityInfo.LAUNCH_SINGLE_INSTANCE -> LAUNCH_MODE_SINGLE_INSTANCE
-            ActivityInfo.LAUNCH_SINGLE_INSTANCE_PER_TASK -> LAUNCH_MODE_SINGLE_INSTANCE_PER_TASK
-            ActivityInfo.LAUNCH_SINGLE_TASK -> LAUNCH_MODE_SINGLE_TASK
-            ActivityInfo.LAUNCH_SINGLE_TOP -> LAUNCH_MODE_SINGLE_TOP
-            ActivityInfo.LAUNCH_MULTIPLE -> LAUNCH_MODE_STANDARD
+            ApplicationStartInfo.LAUNCH_MODE_SINGLE_INSTANCE -> LAUNCH_MODE_SINGLE_INSTANCE
+            ApplicationStartInfo.LAUNCH_MODE_SINGLE_INSTANCE_PER_TASK -> LAUNCH_MODE_SINGLE_INSTANCE_PER_TASK
+            ApplicationStartInfo.LAUNCH_MODE_SINGLE_TASK -> LAUNCH_MODE_SINGLE_TASK
+            ApplicationStartInfo.LAUNCH_MODE_SINGLE_TOP -> LAUNCH_MODE_SINGLE_TOP
+            ApplicationStartInfo.LAUNCH_MODE_STANDARD -> LAUNCH_MODE_STANDARD
             else -> throw IllegalArgumentException("Unknown launch mode value: $value")
         }
     }
