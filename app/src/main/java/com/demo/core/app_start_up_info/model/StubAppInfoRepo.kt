@@ -4,7 +4,7 @@ import java.util.concurrent.Executor
 
 object StubAppInfoRepo : AppInfoRepo {
 
-  override fun addStartInfoListener(executor: Executor, callback: (AppStartUpInfoModel) -> Unit) {
+  override fun addStartInfoListener(executor: Executor, callback: (AppStartInfoBean) -> Unit) {
     //no-op
   }
 
