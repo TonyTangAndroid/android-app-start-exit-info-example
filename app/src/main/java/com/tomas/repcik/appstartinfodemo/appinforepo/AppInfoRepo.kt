@@ -34,14 +34,14 @@ class AppInfoRepo(context: Context) {
     return startInfos.map { mapStartInfo(it) }
   }
 
-  fun getLatestExitInfo(pid: Int = 0): AppExitInfo? {
-    val exitInfos = activityManager.getHistoricalProcessExitReasons(packageName, pid, 1)
+  fun getLatestExitInfo(): AppExitInfo? {
+    val exitInfos = activityManager.getHistoricalProcessExitReasons(packageName, 0, 1)
     val exitInfo = exitInfos.firstOrNull() ?: return null
     return mapExitInfo(exitInfo)
   }
 
-  fun getExitInfoHistory(maxNum: Int, pid: Int = 0): List<AppExitInfo> {
-    val exitInfos = activityManager.getHistoricalProcessExitReasons(packageName, pid, maxNum)
+  fun getExitInfoHistory(maxNum: Int): List<AppExitInfo> {
+    val exitInfos = activityManager.getHistoricalProcessExitReasons(packageName, 0, maxNum)
     return exitInfos.map { mapExitInfo(it) }
   }
 
