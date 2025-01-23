@@ -1,7 +1,5 @@
 package com.demo.core.app_start_up_info
 
-import android.app.ApplicationStartInfo
-
 data class AppStartInfoBean(
   val startType: StartType, // what is the starting point, e.g. hot/cold start
   val startupState: StartupState, // what stage of starting of the app occured, e.g. started/first image rendered
@@ -59,12 +57,5 @@ data class StartupTimestamps(
   val preOnCreate: Long? = null,
   val reservedRangeSystem: Long? = null,
   val surfaceFlingerCompositionComplete: Long? = null
-) {
-  companion object {
+)
 
-    const val KEY_PRE_ON_CREATE: Int = ApplicationStartInfo.START_TIMESTAMP_RESERVED_RANGE_DEVELOPER_START
-
-    const val KEY_POST_ON_CREATE: Int = ApplicationStartInfo.START_TIMESTAMP_RESERVED_RANGE_DEVELOPER_START + 1
-
-  }
-}
