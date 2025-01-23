@@ -14,19 +14,6 @@ class ProdAppInfoRepo(context: Context) : AppInfoRepo {
   private val activityManager: ActivityManager =
     context.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
 
-  override  fun postOnCreate() {
-    Thread.sleep(10)
-    addStartupCheckPoint(StartupTimestampsMapper.KEY_POST_ON_CREATE)
-  }
-
-  override fun preOnCreate() {
-    addStartupCheckPoint(StartupTimestampsMapper.KEY_PRE_ON_CREATE)
-  }
-
-  private fun addStartupCheckPoint(key: Int) {
-    activityManager.addStartInfoTimestamp(key, System.currentTimeMillis())
-  }
-
   override fun addStartInfoListener(executor: Executor, callback: (AppStartInfoBean) -> Unit) {
     activityManager.addApplicationStartInfoCompletionListener(executor) {
       callback(AppStartInfoMapper.mapStartInfo(it))

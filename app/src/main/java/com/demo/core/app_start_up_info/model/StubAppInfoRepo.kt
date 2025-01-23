@@ -8,11 +8,4 @@ object StubAppInfoRepo : AppInfoRepo {
     //no-op
   }
 
-  override fun preOnCreate() {
-    //no-op
-  }
-
-  override fun postOnCreate() {
-    //no-op
-  }
 }
