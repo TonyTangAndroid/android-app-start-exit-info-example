@@ -1,11 +1,9 @@
 package com.demo.core.app_start_up_info.model
 
-import java.util.concurrent.Executor
+import io.reactivex.Observable
 
 object StubAppInfoRepo : AppInfoRepo {
-
-  override fun addStartInfoListener(executor: Executor, callback: (AppStartInfoBean) -> Unit) {
-    //no-op
+  override fun streaming(): Observable<AppStartInfoBean> {
+    return Observable.empty()
   }
-
 }
