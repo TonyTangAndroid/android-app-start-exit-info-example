@@ -12,14 +12,14 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.demo.core.app_start_up_info.model.AppInfoModel
+import com.demo.core.app_start_up_info.model.AppStartUpInfoModel
 import com.demo.core.app_start_up_info.model.AppStartInfoBean
 import com.tomas.repcik.appstartinfodemo.ui.theme.AppStartInfoDemoTheme
 
 object MainActivityComposeUI {
 
   @Composable
-  fun ComposeUI(model: AppInfoModel) {
+  fun ComposeUI(model: AppStartUpInfoModel) {
     AppStartInfoDemoTheme {
       Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
         StartAndExitInfo(
@@ -32,7 +32,7 @@ object MainActivityComposeUI {
 
   @Composable
   fun StartAndExitInfo(
-    model: AppInfoModel,
+    model: AppStartUpInfoModel,
     modifier: Modifier
   ) {
     Column(
@@ -41,7 +41,7 @@ object MainActivityComposeUI {
         .verticalScroll(rememberScrollState())
     ) {
       Text("Start history", style = MaterialTheme.typography.bodyLarge)
-      model.appStartUpInfoList.forEach { startInfo -> StartInfoComp(startInfo) }
+      model.list.forEach { startInfo -> StartInfoComp(startInfo) }
     }
   }
 }

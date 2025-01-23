@@ -7,7 +7,7 @@ import java.util.concurrent.Executor
 
 interface AppInfoRepo {
 
-  fun addStartInfoListener(executor: Executor, callback: (AppInfoModel) -> Unit)
+  fun addStartInfoListener(executor: Executor, callback: (AppStartUpInfoModel) -> Unit)
   fun preOnCreate()
   fun postOnCreate()
 
