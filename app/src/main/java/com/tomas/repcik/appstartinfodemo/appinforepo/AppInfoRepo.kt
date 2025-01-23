@@ -24,25 +24,19 @@ class AppInfoRepo(context: Context) {
   }
 
   fun getLatestStartInfo(): AppStartInfoBean? {
-    val startInfos = activityManager.getHistoricalProcessStartReasons(1)
-    val startInfo = startInfos.firstOrNull() ?: return null
-    return mapStartInfo(startInfo)
+    return activityManager.getHistoricalProcessStartReasons(1).firstOrNull()?.let { mapStartInfo(it) }
   }
 
   fun getStartInfoHistory(maxNum: Int): List<AppStartInfoBean> {
-    val startInfos = activityManager.getHistoricalProcessStartReasons(maxNum)
-    return startInfos.map { mapStartInfo(it) }
+    return activityManager.getHistoricalProcessStartReasons(maxNum).map { mapStartInfo(it) }
   }
 
   fun getLatestExitInfo(): AppExitInfo? {
-    val exitInfos = activityManager.getHistoricalProcessExitReasons(packageName, 0, 1)
-    val exitInfo = exitInfos.firstOrNull() ?: return null
-    return mapExitInfo(exitInfo)
+    return activityManager.getHistoricalProcessExitReasons(packageName, 0, 1).firstOrNull()?.let { mapExitInfo(it) }
   }
 
   fun getExitInfoHistory(maxNum: Int): List<AppExitInfo> {
-    val exitInfos = activityManager.getHistoricalProcessExitReasons(packageName, 0, maxNum)
-    return exitInfos.map { mapExitInfo(it) }
+    return activityManager.getHistoricalProcessExitReasons(packageName, 0, maxNum).map { mapExitInfo(it) }
   }
 
 
