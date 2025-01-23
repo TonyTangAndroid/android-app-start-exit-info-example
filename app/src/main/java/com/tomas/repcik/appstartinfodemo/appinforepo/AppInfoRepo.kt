@@ -6,6 +6,7 @@ import android.app.ApplicationStartInfo
 import android.content.Context
 import com.demo.core.app_start_up_info.AppStartInfoBean
 import com.demo.core.app_start_up_info.AppStartInfoMapper
+import com.tomas.repcik.appstartinfodemo.AppInfoModel
 import java.util.concurrent.Executor
 
 
@@ -14,6 +15,13 @@ class AppInfoRepo(context: Context) {
   private val activityManager: ActivityManager =
     context.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
   private val packageName = context.packageName
+
+
+  fun appInfoModel(): AppInfoModel {
+    val model = AppInfoModel(getStartInfoHistory(1), getExitInfoHistory(1))
+    return model
+  }
+
 
   fun addStartInfoListener(executor: Executor, callback: (ApplicationStartInfo) -> Unit) {
     activityManager.addApplicationStartInfoCompletionListener(executor, callback)

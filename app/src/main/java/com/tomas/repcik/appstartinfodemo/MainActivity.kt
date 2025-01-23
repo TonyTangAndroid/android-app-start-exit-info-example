@@ -11,17 +11,11 @@ class MainActivity : ComponentActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     enableEdgeToEdge()
-    renderModel(appInfoModel())
+    renderModel(AppInfoRepo(this).appInfoModel())
   }
 
   private fun renderModel(model: AppInfoModel) {
     setContent { ComposeUI(model) }
-  }
-
-   fun appInfoModel(): AppInfoModel {
-    val appInfoRepo = AppInfoRepo(this)
-    val model = AppInfoModel(appInfoRepo.getStartInfoHistory(1), appInfoRepo.getExitInfoHistory(1))
-    return model
   }
 
 }
