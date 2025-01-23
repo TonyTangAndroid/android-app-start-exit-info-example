@@ -14,7 +14,7 @@ class MainActivity : ComponentActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     enableEdgeToEdge()
-    AppInfoRepo(this).addStartInfoListener(Executors.newSingleThreadExecutor(), ::onLatestAppStartInfoReady)
+    AppInfoRepo(application).addStartInfoListener(Executors.newSingleThreadExecutor(), ::onLatestAppStartInfoReady)
   }
 
   fun onLatestAppStartInfoReady(info: ApplicationStartInfo) {
