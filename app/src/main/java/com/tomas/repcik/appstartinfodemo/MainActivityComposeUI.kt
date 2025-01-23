@@ -13,7 +13,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.demo.core.app_start_up_info.AppStartInfoBean
-import com.tomas.repcik.appstartinfodemo.appinforepo.AppExitInfo
 import com.tomas.repcik.appstartinfodemo.ui.theme.AppStartInfoDemoTheme
 
 object MainActivityComposeUI {
@@ -42,32 +41,19 @@ object MainActivityComposeUI {
     ) {
       Text("Start history", style = MaterialTheme.typography.bodyLarge)
       model.appStartUpInfoList.forEach { startInfo -> StartInfoComp(startInfo) }
-
-      Text("Exit history", style = MaterialTheme.typography.bodyLarge)
-      model.appExitInfoList.forEach { exitInfo -> ExitInfoComp(exitInfo) }
-    }
-  }
-
-  @Composable
-  fun StartInfoComp(startInfo: AppStartInfoBean) {
-    Card(modifier = Modifier.padding(8.dp)) {
-      Column(modifier = Modifier.padding(8.dp)) {
-        Text(startInfo.startReason.name, style = MaterialTheme.typography.bodyMedium)
-        Text(startInfo.startType.name, style = MaterialTheme.typography.bodyMedium)
-        Text(startInfo.launchMode.name, style = MaterialTheme.typography.bodyMedium)
-        Text(startInfo.startupState.name, style = MaterialTheme.typography.bodyMedium)
-      }
-    }
-  }
-
-  @Composable
-  fun ExitInfoComp(exitInfo: AppExitInfo) {
-    Card(modifier = Modifier.padding(8.dp)) {
-      Column(modifier = Modifier.padding(8.dp)) {
-        Text(exitInfo.exitReason.name, style = MaterialTheme.typography.bodyMedium)
-        Text(exitInfo.exitImportance.name, style = MaterialTheme.typography.bodyMedium)
-        exitInfo.description?.let { Text(it, style = MaterialTheme.typography.bodyMedium) }
-      }
     }
   }
 }
+
+@Composable
+fun StartInfoComp(startInfo: AppStartInfoBean) {
+  Card(modifier = Modifier.padding(8.dp)) {
+    Column(modifier = Modifier.padding(8.dp)) {
+      Text(startInfo.startReason.name, style = MaterialTheme.typography.bodyMedium)
+      Text(startInfo.startType.name, style = MaterialTheme.typography.bodyMedium)
+      Text(startInfo.launchMode.name, style = MaterialTheme.typography.bodyMedium)
+      Text(startInfo.startupState.name, style = MaterialTheme.typography.bodyMedium)
+    }
+  }
+}
+
