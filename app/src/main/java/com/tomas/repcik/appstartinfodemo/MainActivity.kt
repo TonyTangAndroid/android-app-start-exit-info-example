@@ -4,26 +4,25 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import com.demo.core.app_start_up_info.model.AppInfoRepo
 import com.demo.core.app_start_up_info.model.AppStartInfoBean
+import com.demo.core.app_start_up_info.model.AppStartInfoBeanStream
 import com.tomas.repcik.appstartinfodemo.MainActivityComposeUI.ComposeUI
-import java.util.concurrent.Executors
+import com.uber.autodispose.android.lifecycle.AndroidLifecycleScopeProvider.from
+import com.uber.autodispose.autoDispose
+import io.reactivex.android.schedulers.AndroidSchedulers
 
 class MainActivity : ComponentActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     enableEdgeToEdge()
-      loadStartUpModel()
+    loadStartUpModel(AppStartInfoBeanStream())
   }
 
-  private fun loadStartUpModel() {
-    AppInfoRepo.create(application).addStartInfoListener(Executors.newSingleThreadExecutor(), ::renderLatestModel)
-  }
-
-  private fun renderLatestModel(latest: AppStartInfoBean) {
-    runOnUiThread {
-      renderModel(latest)
-    }
+  private fun loadStartUpModel(stream: AppStartInfoBeanStream) {
+    stream.streaming().observeOn(AndroidSchedulers.mainThread())
+      .autoDispose(from(this))
+      .subscribe(::renderModel)
+    AppStartUpInfoObservingWorker(application, stream).observeData()
   }
 
   private fun renderModel(model: AppStartInfoBean) {
