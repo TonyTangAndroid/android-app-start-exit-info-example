@@ -2,7 +2,7 @@ package com.demo.core.app_start_up_info
 
 import android.content.Intent
 
-data class AppStartInfo(
+data class AppStartInfoBean(
   val startType: StartType, // what is the starting point, e.g. hot/cold start
   val startupState: StartupState, // what stage of starting of the app occured, e.g. started/first image rendered
   val startReason: StartReason, // why the app was started

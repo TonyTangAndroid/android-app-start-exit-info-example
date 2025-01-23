@@ -4,7 +4,7 @@ import android.app.ActivityManager
 import android.app.ApplicationExitInfo
 import android.app.ApplicationStartInfo
 import android.content.Context
-import com.demo.core.app_start_up_info.AppStartInfo
+import com.demo.core.app_start_up_info.AppStartInfoBean
 import com.demo.core.app_start_up_info.AppStartInfoMapper
 import java.util.concurrent.Executor
 
@@ -21,13 +21,13 @@ class AppInfoRepo(context: Context) {
   fun addCustomStartTimeStamp(key: Int, timestamp: Long) =
     activityManager.addStartInfoTimestamp(key, timestamp)
 
-  fun getLatestStartInfo(): AppStartInfo? {
+  fun getLatestStartInfo(): AppStartInfoBean? {
     val startInfos = activityManager.getHistoricalProcessStartReasons(1)
     val startInfo = startInfos.firstOrNull() ?: return null
     return mapStartInfo(startInfo)
   }
 
-  fun getStartInfoHistory(maxNum: Int): List<AppStartInfo> {
+  fun getStartInfoHistory(maxNum: Int): List<AppStartInfoBean> {
     val startInfos = activityManager.getHistoricalProcessStartReasons(maxNum)
     return startInfos.map { mapStartInfo(it) }
   }
@@ -44,7 +44,7 @@ class AppInfoRepo(context: Context) {
   }
 
 
-  private fun mapStartInfo(startInfo: ApplicationStartInfo): AppStartInfo {
+  private fun mapStartInfo(startInfo: ApplicationStartInfo): AppStartInfoBean {
     return AppStartInfoMapper.mapStartInfo(startInfo)
   }
 
