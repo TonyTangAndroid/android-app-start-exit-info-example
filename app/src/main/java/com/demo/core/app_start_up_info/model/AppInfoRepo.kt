@@ -1,6 +1,8 @@
 package com.demo.core.app_start_up_info.model
 
 import android.content.Context
+import android.os.Build
+import com.demo.core.app_start_up_info.ProdAppInfoRepo
 import java.util.concurrent.Executor
 
 interface AppInfoRepo {
@@ -11,7 +13,11 @@ interface AppInfoRepo {
 
   companion object {
     fun create(context: Context): AppInfoRepo {
-      return StubAppInfoRepo
+      return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.VANILLA_ICE_CREAM) {
+        ProdAppInfoRepo(context)
+      } else {
+        StubAppInfoRepo
+      }
     }
   }
 
