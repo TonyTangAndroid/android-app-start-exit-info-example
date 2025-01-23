@@ -14,18 +14,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.demo.core.app_start_up_info.AppStartInfoBean
 import com.tomas.repcik.appstartinfodemo.appinforepo.AppExitInfo
-import com.tomas.repcik.appstartinfodemo.appinforepo.AppInfoRepo
 import com.tomas.repcik.appstartinfodemo.ui.theme.AppStartInfoDemoTheme
 
 object MainActivityComposeUI {
 
   @Composable
-  fun composeContent(appInfoRepo: AppInfoRepo) {
+  fun ComposeUI(model: AppInfoModel) {
     AppStartInfoDemoTheme {
       Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
         StartAndExitInfo(
-          appInfoRepo.getStartInfoHistory(1),
-          appInfoRepo.getExitInfoHistory(1),
+          model,
           modifier = Modifier.padding(innerPadding)
         )
       }
@@ -34,18 +32,19 @@ object MainActivityComposeUI {
 
   @Composable
   fun StartAndExitInfo(
-    startInfoHistory: List<AppStartInfoBean>,
-    exitInfoHistory: List<AppExitInfo>,
+    model: AppInfoModel,
     modifier: Modifier
   ) {
-    Column(modifier = modifier
-      .padding(16.dp)
-      .verticalScroll(rememberScrollState())) {
+    Column(
+      modifier = modifier
+        .padding(16.dp)
+        .verticalScroll(rememberScrollState())
+    ) {
       Text("Start history", style = MaterialTheme.typography.bodyLarge)
-      startInfoHistory.forEach { startInfo -> StartInfoComp(startInfo) }
+      model.appStartUpInfoList.forEach { startInfo -> StartInfoComp(startInfo) }
 
       Text("Exit history", style = MaterialTheme.typography.bodyLarge)
-      exitInfoHistory.forEach { exitInfo -> ExitInfoComp(exitInfo) }
+      model.appExitInfoList.forEach { exitInfo -> ExitInfoComp(exitInfo) }
     }
   }
 
