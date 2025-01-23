@@ -30,8 +30,8 @@ class MainActivity : ComponentActivity() {
             AppStartInfoDemoTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     StartAndExitInfo(
-                        appInfoRepo.getStartInfoHistory(4),
-                        appInfoRepo.getExitInfoHistory(4),
+                        appInfoRepo.getStartInfoHistory(1),
+                        appInfoRepo.getExitInfoHistory(1),
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
