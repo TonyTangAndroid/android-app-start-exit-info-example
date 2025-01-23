@@ -1,7 +1,6 @@
 package com.tomas.repcik.appstartinfodemo.appinforepo
 
 import android.app.ActivityManager
-import android.app.ApplicationExitInfo
 import android.app.ApplicationStartInfo
 import android.content.Context
 import android.os.Build
@@ -21,7 +20,7 @@ class AppInfoRepo(context: Context) {
 
   @RequiresApi(Build.VERSION_CODES.VANILLA_ICE_CREAM)
   fun appInfoModel(): AppInfoModel {
-    return AppInfoModel(getStartInfoHistory(1), getExitInfoHistory(0))
+    return AppInfoModel(getStartInfoHistory(1))
   }
 
 
@@ -47,24 +46,10 @@ class AppInfoRepo(context: Context) {
     return activityManager.getHistoricalProcessStartReasons(maxNum).map { mapStartInfo(it) }
   }
 
-  @RequiresApi(Build.VERSION_CODES.R)
-  fun getLatestExitInfo(): AppExitInfo? {
-    return activityManager.getHistoricalProcessExitReasons(packageName, 0, 1).firstOrNull()?.let { mapExitInfo(it) }
-  }
-
-  @RequiresApi(Build.VERSION_CODES.R)
-  fun getExitInfoHistory(maxNum: Int): List<AppExitInfo> {
-    return activityManager.getHistoricalProcessExitReasons(packageName, 0, maxNum).map { mapExitInfo(it) }
-  }
-
   @RequiresApi(Build.VERSION_CODES.VANILLA_ICE_CREAM)
   private fun mapStartInfo(startInfo: ApplicationStartInfo): AppStartInfoBean {
     return AppStartInfoMapper.mapStartInfo(startInfo)
   }
 
-  @RequiresApi(Build.VERSION_CODES.R)
-  private fun mapExitInfo(exitInfo: ApplicationExitInfo): AppExitInfo {
-    return AppExitInfoEnumsMapper.mapExitInfo(exitInfo)
-  }
 
 }
