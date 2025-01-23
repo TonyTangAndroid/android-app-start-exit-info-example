@@ -18,7 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.tomas.repcik.appstartinfodemo.appinforepo.AppExitInfo
 import com.tomas.repcik.appstartinfodemo.appinforepo.AppInfoRepo
-import com.demo.core.app_start_up_info.AppStartInfo
+import com.demo.core.app_start_up_info.AppStartInfoBean
 import com.tomas.repcik.appstartinfodemo.ui.theme.AppStartInfoDemoTheme
 
 class MainActivity : ComponentActivity() {
@@ -42,7 +42,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun StartAndExitInfo(
-    startInfoHistory: List<AppStartInfo>,
+    startInfoHistory: List<AppStartInfoBean>,
     exitInfoHistory: List<AppExitInfo>,
     modifier: Modifier
 ) {
@@ -56,7 +56,7 @@ fun StartAndExitInfo(
 }
 
 @Composable
-fun StartInfoComp(startInfo: AppStartInfo) {
+fun StartInfoComp(startInfo: AppStartInfoBean) {
     Card(modifier = Modifier.padding(8.dp)) {
         Column(modifier = Modifier.padding(8.dp)) {
             Text(startInfo.startReason.name, style = MaterialTheme.typography.bodyMedium)

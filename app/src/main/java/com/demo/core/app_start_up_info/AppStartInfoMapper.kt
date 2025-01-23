@@ -8,7 +8,7 @@ import com.tomas.repcik.appstartinfodemo.appinforepo.AppExitInfoEnumsMapper
 
 object AppStartInfoMapper {
 
-   fun mapStartInfo(startInfo: ApplicationStartInfo): AppStartInfo {
+   fun mapStartInfo(startInfo: ApplicationStartInfo): AppStartInfoBean {
     val startType = AppStartInfoModelMapper.toAppStartType(startInfo.startType)
     val startReason = AppStartInfoModelMapper.toAppStartReason(startInfo.reason)
     val startUpState = AppStartInfoModelMapper.toAppStartState(startInfo.startupState)
@@ -16,7 +16,7 @@ object AppStartInfoMapper {
     val startTimestamp = AppStartInfoModelMapper.toStartupTimestamps(startInfo.startupTimestamps)
     val wasForceStopped = startInfo.wasForceStopped()
     val startIntent = startInfo.intent
-    return AppStartInfo(
+    return AppStartInfoBean(
       startType,
       startUpState,
       startReason,
