@@ -18,7 +18,7 @@ class AppInfoRepo(context: Context) {
 
 
   fun appInfoModel(): AppInfoModel {
-    val model = AppInfoModel(getStartInfoHistory(1), getExitInfoHistory(1))
+    val model = AppInfoModel(getStartInfoHistory(1), getExitInfoHistory(0))
     return model
   }
 
