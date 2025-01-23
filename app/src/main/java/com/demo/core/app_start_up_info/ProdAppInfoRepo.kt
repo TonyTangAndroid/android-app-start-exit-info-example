@@ -4,8 +4,8 @@ import android.app.ActivityManager
 import android.content.Context
 import android.os.Build
 import androidx.annotation.RequiresApi
-import com.demo.core.app_start_up_info.model.AppStartUpInfoModel
 import com.demo.core.app_start_up_info.model.AppInfoRepo
+import com.demo.core.app_start_up_info.model.AppStartInfoBean
 import java.util.concurrent.Executor
 
 @RequiresApi(Build.VERSION_CODES.VANILLA_ICE_CREAM)
@@ -27,9 +27,9 @@ class ProdAppInfoRepo(context: Context) : AppInfoRepo {
     activityManager.addStartInfoTimestamp(key, System.currentTimeMillis())
   }
 
-  override fun addStartInfoListener(executor: Executor, callback: (AppStartUpInfoModel) -> Unit) {
+  override fun addStartInfoListener(executor: Executor, callback: (AppStartInfoBean) -> Unit) {
     activityManager.addApplicationStartInfoCompletionListener(executor) {
-      callback(AppStartUpInfoModel(listOf(AppStartInfoMapper.mapStartInfo(it))))
+      callback(AppStartInfoMapper.mapStartInfo(it))
     }
   }
 
