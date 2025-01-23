@@ -39,7 +39,6 @@ class AppInfoRepo(context: Context) {
     return activityManager.getHistoricalProcessExitReasons(packageName, 0, maxNum).map { mapExitInfo(it) }
   }
 
-
   private fun mapStartInfo(startInfo: ApplicationStartInfo): AppStartInfoBean {
     return AppStartInfoMapper.mapStartInfo(startInfo)
   }
