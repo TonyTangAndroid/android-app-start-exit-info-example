@@ -4,11 +4,9 @@ import android.app.ApplicationStartInfo
 import android.os.Build
 import androidx.annotation.RequiresApi
 import com.demo.core.app_start_up_info.model.AppStartInfoBean
-import com.demo.core.app_start_up_info.model.AppStartInfoModelMapper
-
+@RequiresApi(Build.VERSION_CODES.VANILLA_ICE_CREAM)
 internal object AppStartInfoMapper {
 
-  @RequiresApi(Build.VERSION_CODES.VANILLA_ICE_CREAM)
   fun mapStartInfo(startInfo: ApplicationStartInfo): AppStartInfoBean {
     val startType = AppStartInfoModelMapper.toAppStartType(startInfo.startType)
     val startReason = AppStartInfoModelMapper.toAppStartReason(startInfo.reason)
