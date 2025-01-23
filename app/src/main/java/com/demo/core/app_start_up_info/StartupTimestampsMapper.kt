@@ -6,7 +6,7 @@ import androidx.annotation.RequiresApi
 import com.demo.core.app_start_up_info.model.StartupTimestamps
 
 @RequiresApi(Build.VERSION_CODES.VANILLA_ICE_CREAM)
-object StartupTimestampsMapper {
+internal object StartupTimestampsMapper {
 
   const val KEY_PRE_ON_CREATE: Int = ApplicationStartInfo.START_TIMESTAMP_RESERVED_RANGE_DEVELOPER_START
 
