@@ -1,30 +1,30 @@
-package com.tomas.repcik.appstartinfodemo.appinforepo
+package com.demo.core.app_start_up_info
 
 import android.app.ApplicationStartInfo
-import com.tomas.repcik.appstartinfodemo.appinforepo.LaunchMode.LAUNCH_MODE_SINGLE_INSTANCE
-import com.tomas.repcik.appstartinfodemo.appinforepo.LaunchMode.LAUNCH_MODE_SINGLE_INSTANCE_PER_TASK
-import com.tomas.repcik.appstartinfodemo.appinforepo.LaunchMode.LAUNCH_MODE_SINGLE_TASK
-import com.tomas.repcik.appstartinfodemo.appinforepo.LaunchMode.LAUNCH_MODE_SINGLE_TOP
-import com.tomas.repcik.appstartinfodemo.appinforepo.LaunchMode.LAUNCH_MODE_STANDARD
-import com.tomas.repcik.appstartinfodemo.appinforepo.StartReason.START_REASON_ALARM
-import com.tomas.repcik.appstartinfodemo.appinforepo.StartReason.START_REASON_BACKUP
-import com.tomas.repcik.appstartinfodemo.appinforepo.StartReason.START_REASON_BOOT_COMPLETE
-import com.tomas.repcik.appstartinfodemo.appinforepo.StartReason.START_REASON_BROADCAST
-import com.tomas.repcik.appstartinfodemo.appinforepo.StartReason.START_REASON_CONTENT_PROVIDER
-import com.tomas.repcik.appstartinfodemo.appinforepo.StartReason.START_REASON_JOB
-import com.tomas.repcik.appstartinfodemo.appinforepo.StartReason.START_REASON_LAUNCHER
-import com.tomas.repcik.appstartinfodemo.appinforepo.StartReason.START_REASON_LAUNCHER_RECENTS
-import com.tomas.repcik.appstartinfodemo.appinforepo.StartReason.START_REASON_OTHER
-import com.tomas.repcik.appstartinfodemo.appinforepo.StartReason.START_REASON_PUSH
-import com.tomas.repcik.appstartinfodemo.appinforepo.StartReason.START_REASON_SERVICE
-import com.tomas.repcik.appstartinfodemo.appinforepo.StartReason.START_REASON_START_ACTIVITY
-import com.tomas.repcik.appstartinfodemo.appinforepo.StartType.START_TYPE_COLD
-import com.tomas.repcik.appstartinfodemo.appinforepo.StartType.START_TYPE_HOT
-import com.tomas.repcik.appstartinfodemo.appinforepo.StartType.START_TYPE_UNSET
-import com.tomas.repcik.appstartinfodemo.appinforepo.StartType.START_TYPE_WARM
-import com.tomas.repcik.appstartinfodemo.appinforepo.StartupState.STARTUP_STATE_ERROR
-import com.tomas.repcik.appstartinfodemo.appinforepo.StartupState.STARTUP_STATE_FIRST_FRAME_DRAWN
-import com.tomas.repcik.appstartinfodemo.appinforepo.StartupState.STARTUP_STATE_STARTED
+import com.demo.core.app_start_up_info.LaunchMode.LAUNCH_MODE_SINGLE_INSTANCE
+import com.demo.core.app_start_up_info.LaunchMode.LAUNCH_MODE_SINGLE_INSTANCE_PER_TASK
+import com.demo.core.app_start_up_info.LaunchMode.LAUNCH_MODE_SINGLE_TASK
+import com.demo.core.app_start_up_info.LaunchMode.LAUNCH_MODE_SINGLE_TOP
+import com.demo.core.app_start_up_info.LaunchMode.LAUNCH_MODE_STANDARD
+import com.demo.core.app_start_up_info.StartReason.START_REASON_ALARM
+import com.demo.core.app_start_up_info.StartReason.START_REASON_BACKUP
+import com.demo.core.app_start_up_info.StartReason.START_REASON_BOOT_COMPLETE
+import com.demo.core.app_start_up_info.StartReason.START_REASON_BROADCAST
+import com.demo.core.app_start_up_info.StartReason.START_REASON_CONTENT_PROVIDER
+import com.demo.core.app_start_up_info.StartReason.START_REASON_JOB
+import com.demo.core.app_start_up_info.StartReason.START_REASON_LAUNCHER
+import com.demo.core.app_start_up_info.StartReason.START_REASON_LAUNCHER_RECENTS
+import com.demo.core.app_start_up_info.StartReason.START_REASON_OTHER
+import com.demo.core.app_start_up_info.StartReason.START_REASON_PUSH
+import com.demo.core.app_start_up_info.StartReason.START_REASON_SERVICE
+import com.demo.core.app_start_up_info.StartReason.START_REASON_START_ACTIVITY
+import com.demo.core.app_start_up_info.StartType.START_TYPE_COLD
+import com.demo.core.app_start_up_info.StartType.START_TYPE_HOT
+import com.demo.core.app_start_up_info.StartType.START_TYPE_UNSET
+import com.demo.core.app_start_up_info.StartType.START_TYPE_WARM
+import com.demo.core.app_start_up_info.StartupState.STARTUP_STATE_ERROR
+import com.demo.core.app_start_up_info.StartupState.STARTUP_STATE_FIRST_FRAME_DRAWN
+import com.demo.core.app_start_up_info.StartupState.STARTUP_STATE_STARTED
 
 object AppStartInfoModelMapper {
   fun toAppLaunchMode(value: Int): LaunchMode = when (value) {

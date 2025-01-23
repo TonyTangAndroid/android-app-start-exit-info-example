@@ -18,7 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.tomas.repcik.appstartinfodemo.appinforepo.AppExitInfo
 import com.tomas.repcik.appstartinfodemo.appinforepo.AppInfoRepo
-import com.tomas.repcik.appstartinfodemo.appinforepo.AppStartInfo
+import com.demo.core.app_start_up_info.AppStartInfo
 import com.tomas.repcik.appstartinfodemo.ui.theme.AppStartInfoDemoTheme
 
 class MainActivity : ComponentActivity() {
