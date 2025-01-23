@@ -10,6 +10,7 @@ data class AppStartInfoBean(
 )
 
 enum class LaunchMode {
+  LAUNCH_MODE_UNKNOWN,
   LAUNCH_MODE_SINGLE_INSTANCE,
   LAUNCH_MODE_SINGLE_INSTANCE_PER_TASK,
   LAUNCH_MODE_SINGLE_TASK,
@@ -18,12 +19,14 @@ enum class LaunchMode {
 }
 
 enum class StartupState {
+  STARTUP_STATE_UNKNOWN,
   STARTUP_STATE_ERROR,
   STARTUP_STATE_FIRST_FRAME_DRAWN,
   STARTUP_STATE_STARTED;
 }
 
 enum class StartReason {
+  START_REASON_UNKNOWN,
   START_REASON_ALARM,
   START_REASON_BACKUP,
   START_REASON_BOOT_COMPLETE,
@@ -39,6 +42,7 @@ enum class StartReason {
 }
 
 enum class StartType {
+  START_TYPE_UNKNOWN,
   START_TYPE_COLD,
   START_TYPE_HOT,
   START_TYPE_UNSET,
