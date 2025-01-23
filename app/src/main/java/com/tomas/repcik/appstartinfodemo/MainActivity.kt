@@ -24,12 +24,7 @@ class MainActivity : ComponentActivity() {
 
   @RequiresApi(Build.VERSION_CODES.VANILLA_ICE_CREAM)
   private fun loadStartUpModel() {
-    AppInfoRepo(application).addStartInfoListener(Executors.newSingleThreadExecutor(), ::onLatestAppStartInfoReady)
-  }
-
-  @RequiresApi(Build.VERSION_CODES.VANILLA_ICE_CREAM)
-  fun onLatestAppStartInfoReady(info: ApplicationStartInfo) {
-    renderLatestModel(AppInfoModel(listOf(AppStartInfoMapper.mapStartInfo(info))))
+    AppInfoRepo(application).addStartInfoListener(Executors.newSingleThreadExecutor(), ::renderLatestModel)
   }
 
   private fun renderLatestModel(latest: AppInfoModel) {

@@ -5,10 +5,10 @@ import android.app.ApplicationStartInfo
 import android.content.Context
 import android.os.Build
 import androidx.annotation.RequiresApi
+import com.demo.core.app_start_up_info.model.AppInfoModel
 import java.util.concurrent.Executor
 
 @RequiresApi(Build.VERSION_CODES.VANILLA_ICE_CREAM)
-
 class AppInfoRepo(context: Context) {
 
   private val activityManager: ActivityManager =
@@ -24,15 +24,13 @@ class AppInfoRepo(context: Context) {
   }
 
   private fun addStartupCheckPoint(key: Int) {
-    addCustomStartTimeStamp(key, System.currentTimeMillis())
+    activityManager.addStartInfoTimestamp(key, System.currentTimeMillis())
   }
 
-  fun addStartInfoListener(executor: Executor, callback: (ApplicationStartInfo) -> Unit) {
-    activityManager.addApplicationStartInfoCompletionListener(executor, callback)
-  }
-
-  fun addCustomStartTimeStamp(key: Int, timestamp: Long) {
-    activityManager.addStartInfoTimestamp(key, timestamp)
+  fun addStartInfoListener(executor: Executor, callback: (AppInfoModel) -> Unit) {
+    activityManager.addApplicationStartInfoCompletionListener(executor){
+      callback(AppInfoModel(listOf(AppStartInfoMapper.mapStartInfo(it))))
+    }
   }
 
 
