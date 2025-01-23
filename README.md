@@ -1,1 +1,1 @@
-Full article here: https://proandroiddev.com/analyzing-app-startup-and-shutdown-in-android-15-new-update-7605369ae891
+Apply minimum code to demonstrate the app start up info domain concept.
