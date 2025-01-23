@@ -5,7 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import com.demo.core.app_start_up_info.model.AppInfoRepo
-import com.demo.core.app_start_up_info.model.AppInfoModel
+import com.demo.core.app_start_up_info.model.AppStartUpInfoModel
 import com.tomas.repcik.appstartinfodemo.MainActivityComposeUI.ComposeUI
 import java.util.concurrent.Executors
 
@@ -20,13 +20,13 @@ class MainActivity : ComponentActivity() {
     AppInfoRepo.create(application).addStartInfoListener(Executors.newSingleThreadExecutor(), ::renderLatestModel)
   }
 
-  private fun renderLatestModel(latest: AppInfoModel) {
+  private fun renderLatestModel(latest: AppStartUpInfoModel) {
     runOnUiThread {
       renderModel(latest)
     }
   }
 
-  private fun renderModel(model: AppInfoModel) {
+  private fun renderModel(model: AppStartUpInfoModel) {
     setContent { ComposeUI(model) }
   }
 
