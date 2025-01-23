@@ -12,7 +12,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.demo.core.app_start_up_info.AppStartInfoBean
+import com.demo.core.app_start_up_info.model.AppInfoModel
+import com.demo.core.app_start_up_info.model.AppStartInfoBean
 import com.tomas.repcik.appstartinfodemo.ui.theme.AppStartInfoDemoTheme
 
 object MainActivityComposeUI {

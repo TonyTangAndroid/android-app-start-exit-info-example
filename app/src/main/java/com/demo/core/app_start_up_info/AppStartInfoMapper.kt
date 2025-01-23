@@ -3,6 +3,8 @@ package com.demo.core.app_start_up_info
 import android.app.ApplicationStartInfo
 import android.os.Build
 import androidx.annotation.RequiresApi
+import com.demo.core.app_start_up_info.model.AppStartInfoBean
+import com.demo.core.app_start_up_info.model.AppStartInfoModelMapper
 
 
 object AppStartInfoMapper {

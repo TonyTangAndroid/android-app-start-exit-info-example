@@ -1,4 +1,4 @@
-package com.demo.core.app_start_up_info
+package com.demo.core.app_start_up_info.model
 
 data class AppStartInfoBean(
   val startType: StartType, // what is the starting point, e.g. hot/cold start
