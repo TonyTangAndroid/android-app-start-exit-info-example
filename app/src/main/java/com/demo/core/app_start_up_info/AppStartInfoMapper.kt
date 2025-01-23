@@ -6,8 +6,7 @@ import androidx.annotation.RequiresApi
 import com.demo.core.app_start_up_info.model.AppStartInfoBean
 import com.demo.core.app_start_up_info.model.AppStartInfoModelMapper
 
-
-object AppStartInfoMapper {
+internal object AppStartInfoMapper {
 
   @RequiresApi(Build.VERSION_CODES.VANILLA_ICE_CREAM)
   fun mapStartInfo(startInfo: ApplicationStartInfo): AppStartInfoBean {
@@ -15,7 +14,7 @@ object AppStartInfoMapper {
     val startReason = AppStartInfoModelMapper.toAppStartReason(startInfo.reason)
     val startUpState = AppStartInfoModelMapper.toAppStartState(startInfo.startupState)
     val launchMode = AppStartInfoModelMapper.toAppLaunchMode(startInfo.launchMode)
-    val startTimestamp =StartupTimestampsMapper.toStartupTimestamps(startInfo.startupTimestamps)
+    val startTimestamp = StartupTimestampsMapper.toStartupTimestamps(startInfo.startupTimestamps)
     val wasForceStopped = startInfo.wasForceStopped()
     val startIntent = startInfo.intent.toString()
     println("Ignored app_startup intent : $startIntent")
