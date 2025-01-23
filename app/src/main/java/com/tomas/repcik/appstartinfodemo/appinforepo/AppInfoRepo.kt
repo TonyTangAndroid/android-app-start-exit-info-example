@@ -15,11 +15,13 @@ class AppInfoRepo(context: Context) {
     context.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
   private val packageName = context.packageName
 
-  fun addStartInfoListener(executor: Executor, callback: (ApplicationStartInfo) -> Unit) =
+  fun addStartInfoListener(executor: Executor, callback: (ApplicationStartInfo) -> Unit) {
     activityManager.addApplicationStartInfoCompletionListener(executor, callback)
+  }
 
-  fun addCustomStartTimeStamp(key: Int, timestamp: Long) =
+  fun addCustomStartTimeStamp(key: Int, timestamp: Long) {
     activityManager.addStartInfoTimestamp(key, timestamp)
+  }
 
   fun getLatestStartInfo(): AppStartInfoBean? {
     val startInfos = activityManager.getHistoricalProcessStartReasons(1)
