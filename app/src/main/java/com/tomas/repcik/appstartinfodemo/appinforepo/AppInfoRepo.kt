@@ -62,8 +62,8 @@ class AppInfoRepo(context: Context) {
     }
 
     private fun mapExitInfo(exitInfo: ApplicationExitInfo): AppExitInfo {
-        val exitReason = ExitReason.fromValue(exitInfo.reason)
-        val importance = ProcessImportance.fromValue(exitInfo.importance)
+        val exitReason = AppExitInfoEnumsMapper.toExitReason(exitInfo.reason)
+        val importance = AppExitInfoEnumsMapper.toProcessImportance(exitInfo.importance)
         val description = exitInfo.description
         val timestamp = exitInfo.timestamp
         return AppExitInfo(exitReason, importance, description, timestamp)
