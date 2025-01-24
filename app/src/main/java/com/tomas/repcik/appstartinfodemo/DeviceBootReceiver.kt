@@ -8,7 +8,7 @@ class DeviceBootReceiver : BroadcastReceiver() {
 
   override fun onReceive(context: Context, intent: Intent) {
     if (intent.action == Intent.ACTION_BOOT_COMPLETED) {
-      println("app_startup Device boot completed. Starting app.")
+      println("Device boot completed. Starting app...")
     }
   }
 }
