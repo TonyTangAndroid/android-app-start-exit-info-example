@@ -16,7 +16,6 @@ class ProdAppInfoRepo(context: Context) : AppInfoRepo {
 
   init {
     activityManager(context).addApplicationStartInfoCompletionListener(Executors.newSingleThreadExecutor()) {
-      println("received app_startup ApplicationStartInfo: $it")
       behaviorSubject.onNext(AppStartInfoMapper.mapStartInfo(it))
     }
   }
