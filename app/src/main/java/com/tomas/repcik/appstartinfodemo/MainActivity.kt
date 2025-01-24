@@ -19,7 +19,7 @@ class MainActivity : ComponentActivity() {
   }
 
   private fun loadStartUpModel() {
-    AppInfoRepo.create(application).streaming().observeOn(AndroidSchedulers.mainThread())
+    (application as MainApp).repo().streaming().observeOn(AndroidSchedulers.mainThread())
       .autoDispose(from(this))
       .subscribe(::renderModel)
   }
